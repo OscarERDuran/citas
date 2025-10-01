@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Famicitas - Historial de Citas</title>
+    <title>Famicitas - Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -38,107 +38,88 @@
     </nav>
 
     <div class="container mt-5">
-        <div class="row">
+        <!-- Header -->
+        <div class="row mb-5">
             <div class="col-12">
-                <h2 class="mb-4">Historial de Citas</h2>
-                
-                <!-- Filtros -->
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="row g-3">
-                            <div class="col-md-3">
-                                <select class="form-select" id="filtroMedico">
-                                    <option value="">Todos los médicos</option>
-                                    <option value="juan-perez">Juan Perez</option>
-                                    <option value="camilo-paez">Camilo Paez</option>
-                                    <option value="rita-lopez">Rita Lopez</option>
-                                    <option value="maria-castro">Maria Castro</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <select class="form-select" id="filtroEspecialidad">
-                                    <option value="">Todas las especialidades</option>
-                                    <option value="medicina-general">Medicina General</option>
-                                    <option value="cardiologia">Cardiología</option>
-                                    <option value="ginecologia">Ginecología</option>
-                                    <option value="psicologia">Psicología</option>
-                                    <option value="dermatologia">Dermatología</option>
-                                    <option value="odontologia">Odontología</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="filtroFecha">
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-primary" onclick="filtrarCitas()">
-                                    <i class="fas fa-search me-2"></i>Filtrar
-                                </button>
-                            </div>
+                <h1 class="text-muted mb-3">Gestión de citas de especialidades médicas</h1>
+                <p class="text-muted mb-4">Gestiona las citas de médicos especialistas de forma rápida y sencilla</p>
+                <a href="programar-cita.html" class="btn btn-primary btn-lg">Agendar Cita</a>
+            </div>
+        </div>
+
+        <!-- Opciones principales -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="text-dark mb-4">¿Que deseas hacer?</h3>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <!-- Registro -->
+            <div class="col-md-4">
+                <div class="card h-100 text-center border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-user-plus text-muted" style="font-size: 3rem;"></i>
                         </div>
+                        <h5 class="card-title text-dark">Registro</h5>
+                        <p class="card-text text-muted">Registra nuevos pacientes</p>
+                        <a href="registro-paciente.html" class="btn btn-outline-primary">Acceder</a>
                     </div>
                 </div>
+            </div>
 
-                <!-- Tabla de citas -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead class="table-primary">
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>Hora</th>
-                                        <th>Médico</th>
-                                        <th>Especialidad</th>
-                                        <th>Estado</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tablaCitas">
-                                    <tr>
-                                        <td>2025-09-25</td>
-                                        <td>10:00 AM</td>
-                                        <td>Dr. Juan Perez</td>
-                                        <td>Cardiología</td>
-                                        <td><span class="badge bg-success">Confirmada</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary me-1">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn btn-sm btn-outline-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2025-09-20</td>
-                                        <td>2:30 PM</td>
-                                        <td>Dra. Rita Lopez</td>
-                                        <td>Ginecología</td>
-                                        <td><span class="badge bg-warning">Pendiente</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary me-1">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn btn-sm btn-outline-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2025-09-18</td>
-                                        <td>9:00 AM</td>
-                                        <td>Dr. Camilo Paez</td>
-                                        <td>Medicina General</td>
-                                        <td><span class="badge bg-secondary">Completada</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-info">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            <!-- Programar cita -->
+            <div class="col-md-4">
+                <div class="card h-100 text-center border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-calendar-plus text-muted" style="font-size: 3rem;"></i>
                         </div>
+                        <h5 class="card-title text-dark">Programar cita</h5>
+                        <p class="card-text text-muted">Programa una nueva cita</p>
+                        <a href="programar-cita.html" class="btn btn-outline-primary">Acceder</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historial -->
+            <div class="col-md-4">
+                <div class="card h-100 text-center border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-history text-muted" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title text-dark">Historial</h5>
+                        <p class="card-text text-muted">Consulta el historial de citas</p>
+                        <a href="historial.html" class="btn btn-outline-primary">Acceder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Especialidades -->
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-dark mb-4">Especialidades</h3>
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <span class="badge bg-light text-dark p-3 w-100 d-block">Medicina General</span>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge bg-light text-dark p-3 w-100 d-block">Cardiología</span>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge bg-light text-dark p-3 w-100 d-block">Ginecología</span>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge bg-light text-dark p-3 w-100 d-block">Psicología</span>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge bg-light text-dark p-3 w-100 d-block">Dermatología</span>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge bg-light text-dark p-3 w-100 d-block">Odontología</span>
                     </div>
                 </div>
             </div>
@@ -148,6 +129,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/navbar.js"></script>
-    <script src="js/historial.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
