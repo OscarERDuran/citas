@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API Citas</title>
+</head>
+<body>
+    <h1>Test API Citas</h1>
+    <button onclick="testCrearCita()">Crear Cita de Prueba</button>
+    <button onclick="testObtenerCitas()">Obtener Citas</button>
+    <div id="resultado"></div>
+
+    <script>
+    function testCrearCita() {
+        const datos = {
+            medico: '4',
+            especialidad: '4',
+            hora: '14:30',
+            fecha: '2025-10-02',
+            motivo: 'Consulta de prueba desde test'
+        };
+        
+        console.log('Enviando:', datos);
+        
+        fetch('backend/api/citas_simple.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(datos)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta:', data);
+            document.getElementById('resultado').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('resultado').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+        });
+    }
+    
+    function testObtenerCitas() {
+        fetch('backend/api/citas_simple.php', {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Citas:', data);
+            document.getElementById('resultado').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('resultado').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+        });
+    }
+    </script>
+</body>
+</html>

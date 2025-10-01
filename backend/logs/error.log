@@ -1,0 +1,19 @@
+[23-Sep-2025 03:00:55 UTC] Error de conexión: could not find driver
+[23-Sep-2025 03:02:02 UTC] Error de conexión: could not find driver
+[23-Sep-2025 03:02:57 UTC] Error de conexión: could not find driver
+[23-Sep-2025 03:03:28 UTC] Error de conexión: could not find driver
+[23-Sep-2025 03:03:51 UTC] Error de conexión: could not find driver
+[23-Sep-2025 03:06:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::fetchColumn() in C:\MAMP\htdocs\citas\backend\scripts\init_db.php:111
+Stack trace:
+#0 C:\MAMP\htdocs\citas\backend\scripts\init_db.php(61): DatabaseInitializer->insertAdminUser()
+#1 C:\MAMP\htdocs\citas\backend\scripts\init_db.php(25): DatabaseInitializer->insertDefaultData()
+#2 C:\MAMP\htdocs\citas\backend\scripts\init_db.php(285): DatabaseInitializer->run()
+#3 {main}
+  thrown in C:\MAMP\htdocs\citas\backend\scripts\init_db.php on line 111
+[23-Sep-2025 03:06:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_stmt::fetchAll() in C:\MAMP\htdocs\citas\backend\scripts\init_db.php:143
+Stack trace:
+#0 C:\MAMP\htdocs\citas\backend\scripts\init_db.php(62): DatabaseInitializer->insertSampleMedicos()
+#1 C:\MAMP\htdocs\citas\backend\scripts\init_db.php(25): DatabaseInitializer->insertDefaultData()
+#2 C:\MAMP\htdocs\citas\backend\scripts\init_db.php(283): DatabaseInitializer->run()
+#3 {main}
+  thrown in C:\MAMP\htdocs\citas\backend\scripts\init_db.php on line 143
